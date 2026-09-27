@@ -1,0 +1,153 @@
+/* ==========================================================================
+   1. RESET Y CONFIGURACIÓN GENERAL
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    color: #fff;                             /* Tu color original */
+    background-color: rgba(33, 61, 134, 0.84); /* Tu color original */
+    overflow-x: hidden;                      /* Elimina el scroll horizontal */
+}
+
+/* ==========================================================================
+   2. HEADER Y PORTADA
+   ========================================================================== */
+header {
+    position: relative;  /* Ancla el overlay a este bloque, no a toda la página */
+    min-height : 100vh;
+    width: 100%;
+    background-image: url(gow.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+}
+
+.overlay {
+    background-color: rgba(29, 59, 134, 0.4);                 /* Tu color original */
+    position: absolute;
+    width: 100%;                             /* Cambiado de 100vw a 100% para evitar scroll */
+    height: 100%;
+    z-index: 1;
+}
+
+.cont-head-items {
+    position: relative;
+    z-index: 10;
+    margin: auto;
+    width: 90%;          /* MÓVIL: Se ajusta al ancho de la pantalla */
+    max-width: 600px;    /* PC: Controla que no se extienda demasiado */
+}
+
+.head-img {
+    width: 30%;
+    min-width: 100px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;      /* Necesario para centrar con margin auto */
+    margin: 0 auto 15px; 
+    border: 2px solid #fff;                  /* Tu borde original */
+}
+
+h1 {
+    margin: 0;
+    font-size: 30px;
+    text-wrap: balance;
+    text-align: center;
+}
+
+.hed-p {
+    text-wrap: pretty;
+    text-align: center;
+}
+
+/* ==========================================================================
+   3. NAVEGACIÓN (NAV)
+   ========================================================================== */
+.nav {
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* Centra los elementos verticalmente */
+    padding:6px ;
+    gap: 30px;
+    text-align: center;
+    margin-bottom: 10px 20px;
+    position: sticky;
+    top: 0;
+
+}
+
+.nav-img-cont , .nav-ul-cont{
+    flex-grow: 1 ;
+    text-align: center;
+}
+ .nav-ul-cont{
+    flex-grow:4 ;
+}
+.ul-nav {
+    display: flex;
+    flex-wrap: wrap;     
+    margin: 0;
+    justify-content: center;
+    padding: 0;
+}
+
+.li-nav {
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    padding: 8px 15px;
+    margin-right: 5px;
+    color: #48e; 
+    transition: background-color 0.5s, color 0.5s, border-radius 0.5s ;
+ }
+
+
+.img-nav {
+    width:100%;
+    max-width: 100px; 
+ 
+}
+
+/* ==========================================================================
+   4. CONTENIDO PRINCIPAL
+   ========================================================================== */
+.contenido {
+    padding: 20px 0;
+}
+
+main {
+    width: 90%;          /* Ancho responsivo en móviles */
+    max-width: 700px;    /* Ancho máximo en PC */
+    margin: 30px auto;   /* Centra la columna de texto */
+    line-height: 1.6;
+}
+main h2 {
+    margin-top: 1.4em;
+}
+.nav-link:hover{
+    background-color:  rgba(33, 61, 134, 0.84);
+    color: #fff;
+    border-radius: 8px;
+    outline: 4px solid;
+    outline-color: #ccc;
+    
+}
+.espe{
+    background-color: #48e;
+    color: #fff;
+    border-radius: 9px;
+}
+.espe:hover{
+    background-color: rgb(96, 109, 128);
+}

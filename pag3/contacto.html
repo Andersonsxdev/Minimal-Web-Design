@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="index3.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto · Minimal Web Design</title>
+</head>
+<body>
+    <header class="header compact">
+        <div class="overlay"></div>
+        <div class="cont-head-items">
+            <img class="head-img" src="avatar.jpg" alt="Minimal Web Design">
+            <h1>CONTÁCTANOS</h1>
+            <p class="hed-p">Cuéntanos sobre tu negocio y te respondemos el mismo día.</p>
+        </div>
+    </header>
+    <nav class="nav">
+        <div class="nav-ul-cont">
+            <ul class="ul-nav">
+                <li class="li-nav"> <a class="nav-link" href="index.html">Inicio</a></li>
+                <li class="li-nav"> <a class="nav-link" href="servicios.html">Servicios</a></li>
+                <li class="li-nav"> <a class="nav-link" href="portafolio.html">Portafolio</a></li>
+                <li class="li-nav"> <a class="nav-link espe active" href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="nav-img-cont">
+             <img class="img-nav" src="logo.jpg" alt="Logo Minimal Web Design">
+        </div>
+    </nav>
+    <div class="contenido">
+    <main>
+        <div class="contacto-directo">
+            <!-- Cambia el número por el tuyo (código de país + número, sin espacios ni signos) -->
+            <a href="https://wa.me/593000000000?text=Hola%2C%20quiero%20una%20p%C3%A1gina%20web%20para%20mi%20negocio" target="_blank" rel="noopener">👉 WhatsApp</a>
+            <a href="mailto:tucorreo@gmail.com">👉 Correo</a>
+        </div>
+
+        <form class="form-contacto" id="contactForm">
+            <!-- Pega aquí tu Access Key de web3forms.com -->
+            <input type="hidden" name="access_key" value="TU_ACCESS_KEY_AQUI">
+            <input type="hidden" name="subject" value="Nuevo mensaje desde Minimal Web Design">
+
+            <div>
+                <label>Nombre</label>
+                <input type="text" name="nombre" placeholder="Juan Pérez" required>
+            </div>
+            <div>
+                <label>E-mail</label>
+                <input type="email" name="email" placeholder="correo@gmail.com" required>
+            </div>
+            <div>
+                <label>Cuéntanos sobre tu negocio</label>
+                <textarea name="mensaje" placeholder="Ej: Tengo una tienda de ropa y quiero una página con catálogo..." required></textarea>
+            </div>
+            <input type="submit" value="Enviar mensaje">
+        </form>
+    </main>
+    </div>
+    <footer class="site-footer">Minimal Web Design — © 2026</footer>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const form = this;
+            const boton = form.querySelector('input[type="submit"]');
+            const textoOriginal = boton.value;
+            boton.value = "Enviando...";
+            boton.disabled = true;
+
+            const datos = new FormData(form);
+
+            try {
+                const respuesta = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    headers: { Accept: "application/json" },
+                    body: datos
+                });
+                const resultado = await respuesta.json();
+
+                if (resultado.success) {
+                    alert("¡Mensaje enviado! Te contactaremos pronto.");
+                    form.reset();
+                } else {
+                    alert("No se pudo enviar el mensaje. Por favor intenta de nuevo.");
+                }
+            } catch (error) {
+                alert("No se pudo enviar el mensaje. Revisa tu conexión e intenta de nuevo.");
+            } finally {
+                boton.value = textoOriginal;
+                boton.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

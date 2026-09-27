@@ -1,0 +1,316 @@
+/* ==========================================================================
+   1. RESET Y CONFIGURACIÓN GENERAL
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    color: #fff;
+    background-color: rgba(33, 61, 134, 0.84);
+    overflow-x: hidden;
+}
+
+a { color: inherit; }
+
+/* ==========================================================================
+   2. HEADER Y PORTADA
+   ========================================================================== */
+header {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(hero-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+}
+
+/* Header reducido para páginas internas (Servicios, Portafolio, Contacto) */
+header.compact {
+    min-height: 42vh;
+}
+header.compact .head-img {
+    width: 18%;
+    min-width: 70px;
+}
+header.compact h1 {
+    font-size: 26px;
+}
+
+.overlay {
+    background-color: rgba(29, 59, 134, 0.45);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.cont-head-items {
+    position: relative;
+    z-index: 10;
+    margin: auto;
+    width: 90%;
+    max-width: 600px;
+}
+
+.head-img {
+    width: 30%;
+    min-width: 100px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 15px;
+    border: 2px solid #fff;
+}
+
+h1 {
+    margin: 0;
+    font-size: 30px;
+    text-wrap: balance;
+    text-align: center;
+}
+
+.hed-p {
+    text-wrap: pretty;
+    text-align: center;
+}
+
+/* ==========================================================================
+   3. NAVEGACIÓN (NAV)
+   ========================================================================== */
+.nav {
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+    gap: 30px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-img-cont, .nav-ul-cont {
+    flex-grow: 1;
+    text-align: center;
+}
+.nav-ul-cont {
+    flex-grow: 4;
+}
+.ul-nav {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    justify-content: center;
+    padding: 0;
+}
+.li-nav {
+    list-style: none;
+}
+.nav-link {
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    padding: 8px 15px;
+    margin-right: 5px;
+    color: #48e;
+    transition: background-color 0.5s, color 0.5s, border-radius 0.5s;
+}
+.nav-link:hover {
+    background-color: rgba(33, 61, 134, 0.84);
+    color: #fff;
+    border-radius: 8px;
+    outline: 4px solid;
+    outline-color: #ccc;
+}
+.nav-link.active {
+    background-color: rgba(33, 61, 134, 0.12);
+    border-radius: 8px;
+    font-weight: 700;
+}
+.espe {
+    background-color: #48e;
+    color: #fff;
+    border-radius: 9px;
+}
+.espe:hover {
+    background-color: rgb(96, 109, 128);
+}
+.img-nav {
+    width: 100%;
+    max-width: 100px;
+}
+
+/* ==========================================================================
+   4. CONTENIDO PRINCIPAL
+   ========================================================================== */
+.contenido {
+    padding: 20px 0 60px;
+}
+main {
+    width: 90%;
+    max-width: 700px;
+    margin: 30px auto;
+    line-height: 1.6;
+}
+main.wide {
+    max-width: 1000px;
+}
+main h2 {
+    margin-top: 1.4em;
+}
+main h1.page-title {
+    display: none; /* el título ya va en el header */
+}
+
+/* Botones / CTAs */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 700;
+    background: #2fae8b;
+    color: #fff;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.btn:hover {
+    background: #26906f;
+    transform: translateY(-2px);
+}
+.btn-outline {
+    background: transparent;
+    border: 2px solid #fff;
+}
+.btn-outline:hover {
+    background: rgba(255,255,255,0.12);
+}
+.cta-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+/* ==========================================================================
+   5. TARJETAS (Servicios / Portafolio)
+   ========================================================================== */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+    margin: 30px 0;
+}
+.card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 16px;
+    padding: 22px 20px;
+    text-align: left;
+    transition: transform 0.3s, background 0.3s;
+}
+.card:hover {
+    transform: translateY(-6px);
+    background: rgba(255,255,255,0.13);
+}
+.card h3 {
+    margin-top: 0;
+    color: #7fe3c4;
+}
+.card p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    color: #eef2fb;
+}
+.card a.card-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #7fe3c4;
+    font-weight: 700;
+    text-decoration: none;
+}
+.card a.card-link:hover {
+    text-decoration: underline;
+}
+.card.proximamente {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: rgba(255,255,255,0.6);
+    border-style: dashed;
+}
+
+/* ==========================================================================
+   6. FORMULARIO DE CONTACTO
+   ========================================================================== */
+.form-contacto {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 16px;
+    padding: 28px;
+    display: grid;
+    gap: 14px;
+    margin-top: 20px;
+}
+.form-contacto label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #cfe0ff;
+}
+.form-contacto input,
+.form-contacto textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-family: inherit;
+    font-size: 1rem;
+}
+.form-contacto textarea {
+    min-height: 120px;
+    resize: none;
+}
+.form-contacto input[type="submit"] {
+    background: #2fae8b;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 12px;
+    transition: background-color 0.3s;
+}
+.form-contacto input[type="submit"]:hover {
+    background: #26906f;
+}
+.contacto-directo {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 24px 0;
+}
+.contacto-directo a {
+    text-decoration: none;
+    font-weight: 700;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 10px 18px;
+    border-radius: 10px;
+}
+.contacto-directo a:hover {
+    background: rgba(255,255,255,0.16);
+}
+
+footer.site-footer {
+    text-align: center;
+    padding: 24px;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+}
